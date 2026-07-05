@@ -1,44 +1,118 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#0d1117;
+    background:linear-gradient(to bottom,#020817,#071a35,#102748);
     color:white;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-header{
-    height:100vh;
+/* Stars */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(1.5px 1.5px at 70% 20%, white, transparent),
+      radial-gradient(2px 2px at 80% 60%, white, transparent),
+      radial-gradient(1px 1px at 40% 80%, white, transparent),
+      radial-gradient(2px 2px at 10% 70%, white, transparent),
+      radial-gradient(1.5px 1.5px at 90% 10%, white, transparent);
+    opacity:.8;
+    animation:twinkle 4s infinite alternate;
+    z-index:-2;
+}
+
+@keyframes twinkle{
+    from{opacity:.4;}
+    to{opacity:1;}
+}
+
+/* Moon */
+body::after{
+    content:"";
+    position:fixed;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:#dbeafe;
+    top:70px;
+    right:80px;
+    box-shadow:0 0 60px #8ec5ff;
+    z-index:-1;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px 8%;
+}
+
+nav h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    color:#f8f6ef;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#82cfff;
+}
+
+.hero-content{
+    flex:1;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:20px;
 }
 
-h1{
+.hero-content h1{
+    font-family:'Cormorant Garamond',serif;
     font-size:4rem;
-    letter-spacing:5px;
+    margin-bottom:20px;
 }
 
-header p{
-    margin:20px;
-    font-size:1.3rem;
-    color:#b8b8b8;
+.hero-content p{
+    color:#cbd5e1;
+    font-size:1.2rem;
+    margin-bottom:35px;
 }
 
 button{
     padding:15px 35px;
     border:none;
     border-radius:50px;
-    background:#6C63FF;
+    background:#3b82f6;
     color:white;
     font-size:18px;
     cursor:pointer;
@@ -46,43 +120,24 @@ button{
 }
 
 button:hover{
-    transform:scale(1.08);
-    background:#867cff;
+    transform:translateY(-3px);
+    box-shadow:0 0 25px #60a5fa;
 }
 
-section{
-    padding:80px 10%;
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:20px;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:2.2rem;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:#161b22;
-    border-radius:20px;
-    height:300px;
-    display:flex;
+nav ul{
+    flex-wrap:wrap;
     justify-content:center;
-    align-items:center;
-    color:#8f8f8f;
-    transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.hero-content h1{
+    font-size:2.7rem;
 }
 
-footer{
-    text-align:center;
-    padding:40px;
-    color:#777;
 }
